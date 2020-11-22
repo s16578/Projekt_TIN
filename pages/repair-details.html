@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Gwarancje</title>
+</head>
+
+<body>
+    <header>
+        <h1>GWARANCJE.PL</h1>
+        <img src="../images/service-428539_1280.jpg" alt="LOGO" width="400" height="300">
+    </header>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Strona główna</a></li>
+            <li><a href="employee-list.html">Pracownicy</a></li>
+            <li><a href="repair-list.html" class="active">Naprawy</a></li>
+            <li><a href="computer-list.html">Komputery</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2>Szczegóły naprawy</h2>
+        <form class="form">
+            <div>
+                <label for="id">Numer naprawy</label>
+                <input type="text" name="id" value="3" id="id" disabled />
+            </div>
+            <div>
+                <label for="model">Model</label>
+                <input type="text" name="model" value="Lenovo Legion GL65" id="model" disabled />
+            </div>
+            <div>
+                <label for="status">Status</label>
+                <input type="text" name="status" value="Naprawiony" id="status" disabled />
+            </div>
+            <div>
+                <label for="cost">Całkowity koszt naprawy</label>
+                <input type="text" name="cost" value="340" id="cost" disabled />
+            </div>
+            <h2>Serwisanci</h2>
+            <table class="table-list">
+                <thead>
+                    <tr>
+                        <th>Serwisant</th>
+                        <th>Data rozpoczęcia</th>
+                        <th>Data zakończenia</th>
+                        <th>Koszt</th>
+                        <th>Notatka</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Zbyszek</td>
+                        <td>20/04/2010</td>
+                        <td>15/03/2010</td>
+                        <td>200</td>
+                        <td>Spalony Ram</td>
+                    </tr>
+                    <tr>
+                        <td>Zbyszek</td>
+                        <td>10/06/2010</td>
+                        <td>11/07/2010</td>
+                        <td>140</td>
+                        <td>Wymiana dysku</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="form-buttons">
+                <a href="repair-list.html" class="list-actions-button-details">Powrót</a>
+            </div>
+
+        </form>
+    </main>
+    <footer>
+        Adam, Daniluk, s16578
+    </footer>
+</body>
+
+</html>
