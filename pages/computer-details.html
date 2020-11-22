@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Gwarancje</title>
+</head>
+
+<body>
+    <header>
+        <h1>GWARANCJE.PL</h1>
+        <img src="../images/service-428539_1280.jpg" alt="LOGO" width="400" height="300">
+    </header>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Strona główna</a></li>
+            <li><a href="employee-list.html">Pracownicy</a></li>
+            <li><a href="repair-list.html">Naprawy</a></li>
+            <li><a href="computer-list.html" class="active">Komputery</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2>Szczegóły kopmutera</h2>
+        <form class="form">
+            <div class="form-group">
+                <label for="model">Model</label>
+                <input type="text" name="model" value="Lenovo Legion GL65" id="model" disabled />
+            </div>
+            <div class="form-group">
+                <label for="RAM">RAM</label>
+                <input type="number" name="RAM" value="16" id="RAM" disabled />
+            </div>
+            <div class="form-group">
+                <label for="Disc">Dysk</abbr></label>
+                <input type="number" name="Disc" value="512" id="Disc" disabled />
+            </div>
+            <div class="form-group">
+                <label for="Gpu">GPU</label>
+                <input type="text" name="Gpu" value="-" id="Gpu" disabled />
+            </div>
+            <div class="form-group">
+                <label for="customer_note">Notatka od klienta</label>
+                <input type="text" name="customer_note" value="Nie włącza się" id="customer_note" />
+            </div>
+            </div>
+            <div class="form-buttons">
+                <input type="submit" value="Dodaj" class="form-buttons-submit" />
+                <a href="computer-list.html" class="form-buttons-cancel">Anuluj</a>
+            </div>
+        </form>
+        <h2>Historia napraw</h2>
+        <table class="table-list">
+            <thead>
+                <tr>
+                    <th>Status</th>
+                    <th>Całkowity koszt naprawy</th>
+                    <th>Ostatnia aktualizacja</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Zakończona</td>
+                    <td>1400</td>
+                    <td>21/11/2020</td>
+                </tr>
+                <tr>
+                    <td>W trakcie</td>
+                    <td>500</td>
+                    <td>10/11/2020</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="form-buttons">
+            <a href="computer-list.html" class="list-actions-button-details">Powrót</a>
+        </div>
+
+        </form>
+    </main>
+    <footer>
+        Adam, Daniluk, s16578
+    </footer>
+</body>
+
+</html>

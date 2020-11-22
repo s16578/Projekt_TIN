@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Gwarancje</title>
+</head>
+
+<body>
+    <header>
+        <h1>GWARANCJE.PL</h1>
+        <img src="../images/service-428539_1280.jpg" alt="LOGO" width="400" height="300">
+    </header>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Strona główna</a></li>
+            <li><a href="employee-list.html" class="active">Pracownicy</a></li>
+            <li><a href="repair-list.html">Naprawy</a></li>
+            <li><a href="computer-list.html">Komputery</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2>Szczegóły pracownika</h2>
+        <form class="form">
+            <div>
+                <label for="firstName">Imie</label>
+                <input type="text" name="firstName" value="Zbyszek" id="firstName" disabled />
+            </div>
+            <div>
+                <label for="secondName">Nazwisko</label>
+                <input type="text" name="secondName" value="Hajzer" id="secondName" disabled />
+            </div>
+            <div>
+                <label for="role">Stanowisko</label>
+                <input type="text" name="role" value="Serwisant" id="role" disabled />
+            </div>
+            <div class="form-buttons">
+                <a href="employee-edit.html" class="list-actions-button-details">Edytuj</a>
+            </div>
+            <h2>Historia serwisów</h2>
+            <table class="table-list">
+                <thead>
+                    <tr>
+                        <th>Komputer</th>
+                        <th>Notatka</th>
+                        <th>Status</th>
+                        <th>Naprawa rozpoczęta</th>
+                        <th>Naprawda zakończona</th>
+                        <th>Koszt naprawy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Lenovo G50</td>
+                        <td>Słaba bateria</td>
+                        <td>W realizacji</td>
+                        <td>10/05/2020</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Dell 3650</td>
+                        <td>Wymieniony ekran</td>
+                        <td>Zakończona</td>
+                        <td>03/08/2020</td>
+                        <td>15/09/2020</td>
+                        <td>600</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="form-buttons">
+                <a href="employee-list.html" class="list-actions-button-details">Powrót</a>
+            </div>
+
+        </form>
+    </main>
+    <footer>
+        Adam, Daniluk, s16578
+    </footer>
+</body>
+
+</html>
