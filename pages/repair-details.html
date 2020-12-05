@@ -37,10 +37,25 @@
                 <input type="text" name="status" value="Naprawiony" id="status" disabled />
             </div>
             <div>
+                <label for="date_start">Data rozpoczęcia naprawy</label>
+                <input type="date" name="date_start" value="20.04.2020" id="date_start" disabled />
+            </div>
+            <div>
+                <label for="date_end">Data zakończenia naprawy</label>
+                <input type="date" name="date_end" value="29.04.2020" id="date_end" disabled />
+            </div>
+            <div>
+                <label for="note">Notatka</label>
+                <input type="text" name="note" value="Wymiana kości RAM" id="note" disabled />
+            </div>
+            <div>
                 <label for="cost">Całkowity koszt naprawy</label>
                 <input type="text" name="cost" value="340" id="cost" disabled />
             </div>
-            <h2>Serwisanci</h2>
+            <div class="form-buttons">
+                <a href="repair-edit.html" class="list-actions-button-details">Edytuj</a>
+            </div>
+            <h2>Serwisant</h2>
             <table class="table-list">
                 <thead>
                     <tr>
@@ -48,23 +63,35 @@
                         <th>Data rozpoczęcia</th>
                         <th>Data zakończenia</th>
                         <th>Koszt</th>
-                        <th>Notatka</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Zbyszek</td>
-                        <td>20/04/2010</td>
-                        <td>15/03/2010</td>
+                        <td>20.04.2010</td>
+                        <td>15.03.2010</td>
                         <td>200</td>
-                        <td>Spalony Ram</td>
                     </tr>
+                </tbody>
+            </table>
+            <h2>Komputer</h2>
+            <table class="table-list">
+                <thead>
                     <tr>
-                        <td>Zbyszek</td>
-                        <td>10/06/2010</td>
-                        <td>11/07/2010</td>
-                        <td>140</td>
-                        <td>Wymiana dysku</td>
+                        <th>Model</th>
+                        <th>Notatka od klienta</th>
+                        <th>RAM</th>
+                        <th>Dysk</th>
+                        <th>GPU</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>DELL 3000</td>
+                        <td>Komputer nie uruchamia się</td>
+                        <td>4</td>
+                        <td>528</td>
+                        <td>-</td>
                     </tr>
                 </tbody>
             </table>
