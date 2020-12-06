@@ -22,32 +22,24 @@
         </ul>
     </nav>
     <main>
-        <h2>Szczegóły pracownika</h2>
+        <h2>Edytuj pracownika</h2>
         <form class="form">
-            <div>
-                <label for="firstName">Imie</label>
-                <input type="text" name="firstName" value="Zbyszek" id="firstName" />
-            </div>
-            <div>
-                <label for="secondName">Nazwisko</label>
-                <input type="text" name="secondName" value="Hajzer" id="secondName" />
-            </div>
-            <div>
-                <label for="role">Stanowisko</label>
-                <select name="role" id="role">
-                    <option value="Tester">Tester</option>
-                    <option value="Serwisant">Serwisant</option>
-                    <option value="Menadzer">Menadzer</option>
-                    <option value="Serwisant_Junior">Serwisant Junior</option>
-                </select>
-            </div>
-            <div class="form-buttons">
-                <a href="employee-list.html" class="list-actions-button-edit">Edytuj</a>
-            </div>
-            <div class="form-buttons">
-                <a href="employee-list.html" class="list-actions-button-details">Powrót</a>
-            </div>
 
+            <label for="firstName">Imie</label>
+            <input type="text" name="firstName" value="Zbyszek" id="firstName" />
+
+            <label for="secondName">Nazwisko</label>
+            <input type="text" name="secondName" value="Hajzer" id="secondName" />
+
+            <label for="role">Stanowisko</label>
+            <select name="role" id="role">
+                <option value="Tester">Tester</option>
+                <option value="Serwisant">Serwisant</option>
+                <option value="Menadzer">Menadzer</option>
+                <option value="Serwisant_Junior">Serwisant Junior</option>
+            </select>
+            <input type="submit" value="Edytuj" class="form-buttons-submit" />
+            <input type="submit" value="Anuluj" class="form-buttons-cancel" />
         </form>
     </main>
     <footer>

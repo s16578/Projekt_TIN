@@ -4,7 +4,8 @@ html {
 }
 
 body {
-    min-width: 600px;
+    /*min-width: 600px;*/
+    min-width: 360px;
 }
 
 header,
@@ -28,15 +29,8 @@ footer {
 }
 
 header {
-    overflow: auto;
-}
-
-header h1 {
-    float: left;
-}
-
-header img {
-    float: right;
+    display: flex;
+    justify-content: space-between;
 }
 
 nav {
@@ -44,14 +38,11 @@ nav {
 }
 
 nav ul {
+    display: flex;
     padding: 0;
-    overflow: hidden;
     list-style-type: none;
 }
 
-nav ul li {
-    float: left;
-}
 
 nav ul li a{
     display: inline-block;
@@ -197,7 +188,9 @@ textarea{
 
 .form {
     margin-left: 2rem;
-    width: 300px;
+    display: grid;
+    grid-template-columns: 150px 300px;
+    row-gap: 1rem;
 }
 
 .form select,
@@ -225,12 +218,16 @@ abbr[title='required'] {
 }
 
 .form-buttons {
-    margin-top: 2rem;
+    margin-top: 1rem;
+    grid-column-start: 1;
+    grid-column-end: -1;
 }
 
 .form-buttons-submit,
 .form-buttons-cancel {
     width: 100%;
+    grid-column-start: 1;
+    grid-column-end: -1;
 }
 
 .form-buttons-cancel {
@@ -242,3 +239,54 @@ abbr[title='required'] {
     margin-bottom: 0.5rem;
 }
 
+@media all and (max-width: 720px) {
+    header {
+        flex-direction: column;
+    }
+
+    header h1 {
+        text-align: center;
+    } 
+
+    header img {
+        align-self: center;
+    }
+    .form {
+        grid-template-columns: 1fr;
+        row-gap:unset;
+        margin-left: unset;
+    }
+
+    .form input[type="text"],
+    .form input[type="number"],
+    .form input[type="date"],
+    .form select {
+        margin-bottom: 1rem;
+    }
+    nav ul {
+        flex-wrap: wrap;
+    }
+
+    nav ul li {
+        flex-basis: 50%;
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: block;
+    }
+}
+
+@media all and (max-width: 400px) {
+    body, 
+    nav, 
+    nav ul, 
+    header, 
+    main, 
+    footer {
+        margin: 0;
+    }
+    nav ul li {
+        flex-basis: 100%;
+    }
+}
