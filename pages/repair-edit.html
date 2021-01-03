@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css" />
+    <script type="application/javascript" src="../js/validationCommon.js"></script>
+    <script type="application/javascript" src="../js/validationRepairEdit.js"></script>
     <title>Gwarancje</title>
 </head>
 
@@ -23,23 +25,32 @@
     </nav>
     <main>
         <h2>Edytuj naprawę</h2>
-        <form class="form">
+        <form class="form" novalidate onsubmit="return validateForm();">
             <label for="id">Numer naprawy</label>
             <input type="text" name="id" value="3" id="id" disabled />
+            <span id="errorId"></span>
             <label for="model">Model</label>
             <input type="text" name="model" value="Lenovo Legion GL65" id="model" disabled />
+            <span id="errorModel"></span>
             <label for="status">Status</label>
             <input type="text" name="status" value="Naprawiony" id="status" />
+            <span id="errorStatus" class="errors-text"></span>
             <label for="date_start">Data rozpoczęcia naprawy</label>
-            <input type="date" name="date_start" value="20.04.2020" id="date_start" disabled />
+            <input type="date" name="date_start" value="2018-09-20" id="date_start" disabled />
+            <span id="errorDateStart" class="errors-text"></span>
             <label for="date_end">Data zakończenia naprawy</label>
-            <input type="date" name="date_end" value="29.04.2020" id="date_end" />
+            <input type="date" name="date_end" value="2020-01-01" id="date_end" />
+            <span id="errorDateEnd" class="errors-text"></span>
             <label for="note">Notatka</label>
             <input type="text" name="note" value="Wymiana kości RAM" id="note" />
+            <span id="errorNote" class="errors-text"></span>
             <label for="cost">Całkowity koszt naprawy</label>
-            <input type="text" name="cost" value="340" id="cost" />
+            <input type="number" name="cost" value="340" id="cost" />
+            <span id="errorCost" class="errors-text"></span>
+            <p id="errorsSummary" class="errors-text"></p>
             <input type="submit" value="Edytuj" class="form-buttons-submit" />
             <input type="submit" value="Anuluj" class="form-buttons-cancel" />
+        </form>
     </main>
     <footer>
         Adam, Daniluk, s16578

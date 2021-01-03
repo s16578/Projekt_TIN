@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css" />
+    <script type="application/javascript" src="../js/validationCommon.js"></script>
+    <script type="application/javascript" src="../js/validationEmpForm.js"></script>
     <title>Gwarancje</title>
 </head>
 
@@ -23,14 +25,13 @@
     </nav>
     <main>
         <h2>Edytuj pracownika</h2>
-        <form class="form">
-
+        <form class="form" novalidate onsubmit="return validateForm();">
             <label for="firstName">Imie</label>
             <input type="text" name="firstName" value="Zbyszek" id="firstName" />
-
+            <span id="errorFirstName" class="errors-text"></span>
             <label for="secondName">Nazwisko</label>
             <input type="text" name="secondName" value="Hajzer" id="secondName" />
-
+            <span id="errorSecondName" class="errors-text"></span>
             <label for="role">Stanowisko</label>
             <select name="role" id="role">
                 <option value="Tester">Tester</option>
@@ -38,6 +39,8 @@
                 <option value="Menadzer">Menadzer</option>
                 <option value="Serwisant_Junior">Serwisant Junior</option>
             </select>
+            <span id="errorRole" class="errors-text"></span>
+            <p id="errorsSummary" class="errors-text"></p>
             <input type="submit" value="Edytuj" class="form-buttons-submit" />
             <input type="submit" value="Anuluj" class="form-buttons-cancel" />
         </form>

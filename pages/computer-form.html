@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css" />
+    <script type="application/javascript" src="../js/validationCommon.js"></script>
+    <script type="application/javascript" src="../js/validationComputerForm.js"></script>
     <title>Gwarancje</title>
 </head>
 
@@ -23,19 +25,26 @@
     </nav>
     <main>
         <h2>Dodaj komputer</h2>
-        <form class="form">
-            <label for="model">Model<abbr title="required" aria-label="reqyured">*</abbr></label>
-            <input type="text" name="model" id="model" />
-            <label for="RAM">RAM<abbr title="required" aria-label="reqyured">*</abbr></label>
-            <input type="number" name="RAM" id="RAM" />
-            <label for="Disc">Model<abbr title="required" aria-label="reqyured">*</abbr></label>
-            <input type="number" name="Disc" id="Disc" />
+        <form class="form" novalidate onsubmit="return validateForm();">
+            <label for="model">Model<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="text" name="model" id="model" placeholder="5 - 30 znaków" />
+            <span id="errorModel" class="errors-text"></span>
+            <label for="RAM">RAM<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="number" name="RAM" id="RAM" placeholder="Wyrażony w GB" />
+            <span id="errorRam" class="errors-text"></span>
+            <label for="Disc">Dysk<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="number" name="Disc" id="Disc" placeholder="Wyrażony w GB" />
+            <span id="errorDisc" class="errors-text"></span>
             <label for="Gpu">GPU</label>
             <input type="text" name="Gpu" id="Gpu" />
-            <label for="customer_note">Notatka od klienta<abbr title="required" aria-label="reqyured">*</abbr></label>
-            <input type="text" name="customer_note" id="customer_note" />
+            <span id="Gpu" class="errors-text"></span>
+            <label for="customer_note">Notatka od klienta<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="text" name="customer_note" id="customer_note" placeholder="10 - 200 znaków" />
+            <span id="errorNote" class="errors-text"></span>
+            <p id="errorsSummary" class="errors-text"></p>
             <input type="submit" value="Dodaj" class="form-buttons-submit" />
-            <a href="computer-list.html" class="form-buttons-cancel">Anuluj</a>
+            <input type="button" onclick="location.href='computer-list.html'" value="Anuluj"
+                class="form-buttons-cancel" />
         </form>
     </main>
     <footer>

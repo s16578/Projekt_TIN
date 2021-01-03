@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css" />
     <title>Gwarancje</title>
+    <script type="application/javascript" src="../js/validationCommon.js"></script>
+    <script type="application/javascript" src="../js/validationEmpForm.js"></script>
 </head>
 
 <body>
@@ -23,20 +25,26 @@
     </nav>
     <main>
         <h2>Nowy Pracownik</h2>
-        <form class="form">
-            <label for="firstName">Imie<abbr title="required" aria-label="reqyured">*</abbr></label>
-            <input type="text" name="firstName" id="firstName" />
-            <label for="secondName">Nazwisko<abbr title="required" aria-label="reqyured">*</abbr></label>
-            <input type="text" name="secondName" id="secondName" />
-            <label for="role">Stanowisko<abbr title="required" aria-label="reqyured">*</abbr></label>
+        <form class="form" novalidate onsubmit="return validateForm();">
+            <label for="firstName">Imie<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="text" name="firstName" id="firstName" placeholder="2-30 znaków" />
+            <span id="errorFirstName" class="errors-text"></span>
+            <label for="secondName">Nazwisko<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="text" name="secondName" id="secondName" placeholder="2-30 znaków" />
+            <span id="errorSecondName" class="errors-text"></span>
+            <label for="role">Stanowisko<abbr title="required" aria-label="required">*</abbr></label>
             <select name="role" id="role">
-                <option value="Tester">-- Stanowisko --</option>
+                <option value="" disabled selected hidden>-- Wybierz stanowisko --</option>
+                <option value="Tester">Tester</option>
                 <option value="Serwisant">Serwisant</option>
                 <option value="Menadzer">Menadzer</option>
                 <option value="Serwisant_Junior">Serwisant Junior</option>
             </select>
+            <span id="errorRole" class="errors-text"></span>
+            <p id="errorsSummary" class="errors-text"></p>
             <input type="submit" value="Dodaj" class="form-buttons-submit" />
-            <input type="submit" value="Anuluj" class="form-buttons-cancel" />
+            <input type="button" onclick="location.href='employee-list.html'" value="Anuluj"
+                class="form-buttons-cancel" />
         </form>
     </main>
     <footer>

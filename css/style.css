@@ -189,8 +189,9 @@ textarea{
 .form {
     margin-left: 2rem;
     display: grid;
-    grid-template-columns: 150px 300px;
+    column-gap: 1rem;
     row-gap: 1rem;
+    grid-template-columns: 150px 300px 1fr;
 }
 
 .form select,
@@ -219,15 +220,13 @@ abbr[title='required'] {
 
 .form-buttons {
     margin-top: 1rem;
-    grid-column-start: 1;
-    grid-column-end: -1;
+    grid-column: 1 / span 2;
 }
 
 .form-buttons-submit,
 .form-buttons-cancel {
     width: 100%;
-    grid-column-start: 1;
-    grid-column-end: -1;
+    grid-column: 1 / span 2;
 }
 
 .form-buttons-cancel {
@@ -237,6 +236,18 @@ abbr[title='required'] {
 
 .form-buttons-submit {
     margin-bottom: 0.5rem;
+}
+
+.errors-text {
+    font-size: 0.85sem;
+    line-height: 2.25rem;
+    color:  #e74c3c;
+    grid-column: 3 / span 1;
+}
+
+.form input.error-input,
+.form select.error-input {
+    border: 3px solid #e74c3c;
 }
 
 @media all and (max-width: 720px) {
@@ -251,18 +262,7 @@ abbr[title='required'] {
     header img {
         align-self: center;
     }
-    .form {
-        grid-template-columns: 1fr;
-        row-gap:unset;
-        margin-left: unset;
-    }
 
-    .form input[type="text"],
-    .form input[type="number"],
-    .form input[type="date"],
-    .form select {
-        margin-bottom: 1rem;
-    }
     nav ul {
         flex-wrap: wrap;
     }
@@ -274,6 +274,18 @@ abbr[title='required'] {
 
     nav ul li a {
         display: block;
+    }
+
+    .form {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin-left: 2rem;
+        row-gap: unset;
+        /*
+        grid-template-columns: 1fr;
+        row-gap:unset;
+        margin-left: unset;
+    */
     }
 }
 
