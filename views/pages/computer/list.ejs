@@ -1,0 +1,60 @@
+<%- include('../../fragments/header.ejs')%>
+    <main>
+        <h2>Lista komputerów</h2>
+        <table class="table-list">
+            <thead>
+                <tr>
+                    <th>Model</th>
+                    <th>RAM</th>
+                    <th>Dysk</th>
+                    <th>GPU</th>
+                    <th>Notatka od klienta</th>
+                    <th>Akcje</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Lenovo Legion GL65</td>
+                    <td>16</td>
+                    <td>512</td>
+                    <td>-</td>
+                    <td>"Nie włącza się"</td>
+                    <td>
+                        <ul class="list-actions">
+                            <li>
+                                <a href="computers/details/1" class="list-actions-button-details">Szczegóły</a>
+                            </li>
+                            <li>
+                                <a href="computers/edit/1" class="list-actions-button-edit">Edytuj</a>
+                            </li>
+                            <li>
+                                <a href="" class="list-actions-button-delete">Usuń</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Dell XPS</td>
+                    <td>8</td>
+                    <td>1024</td>
+                    <td>Radeon 3010</td>
+                    <td>Komputer ma wysoką temperaturę podczas pracy</td>
+                    <td>
+                        <ul class="list-actions">
+                            <li>
+                                <a href="computers/details/1" class="list-actions-button-details">Szczegóły</a>
+                            </li>
+                            <li>
+                                <a href="computers/edit/1" class="list-actions-button-edit">Edytuj</a>
+                            </li>
+                            <li>
+                                <a href="" class="list-actions-button-delete">Usuń</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p><a href="computers/add" class="button-add">Wprowadz nowy komputer</a></p>
+    </main>
+    <%- include('../../fragments/footer.ejs')%>

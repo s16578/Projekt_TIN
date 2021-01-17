@@ -1,0 +1,23 @@
+<%- include('../../fragments/headerRepairs.ejs')%>
+    <main>
+        <h2>Dodaj naprawę</h2>
+        <form class="form" novalidate onsubmit="return validateForm();">
+            <label for="model">Model<abbr title="required" aria-label="reqyured">*</abbr></label>
+            <select name="model" id="model">
+                <option value="" disabled selected hidden>-- Wybierz model --</option>
+                <option value="Laptop">Lenovo Legion GL65</option>
+                <option value="Laptop">DELL 500</option>
+            </select>
+            <span id="errorModel" class="errors-text"></span>
+            <label for="employee">Pracownik<abbr title="required" aria-label="reqyured">*</abbr></label>
+            <select name="employee" id="employee">
+                <option value="" disabled selected hidden>-- Wybierz pracownika --</option>
+                <option value="employee">Janek</option>
+                <option value="employee">Zdzichu</option>
+            </select>
+            <span id="errorEmployee" class="errors-text"></span>
+            <span id="errorsSummary" class="errors-text"></span>
+            <input type="submit" value="Dodaj" class="form-buttons-submit" />
+            <a href="/repairs" class="form-buttons-cancel">Anuluj</a>
+        </form>
+        <%- include('../../fragments/footer.ejs')%>

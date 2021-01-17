@@ -1,0 +1,52 @@
+<%- include('../../fragments/headerComputers.ejs')%>
+    <main>
+        <h2>Szczegóły komputera</h2>
+        <form class="form">
+            <label for="model">Model</label>
+            <input type="text" name="model" value="Lenovo Legion GL65" id="model" disabled />
+            <span></span>
+            <label for="RAM">RAM</label>
+            <input type="number" name="RAM" value="16" id="RAM" disabled />
+            <span></span>
+            <label for="Disc">Dysk</abbr></label>
+            <input type="number" name="Disc" value="512" id="Disc" disabled />
+            <span></span>
+            <label for="Gpu">GPU</label>
+            <input type="text" name="Gpu" value="-" id="Gpu" disabled />
+            <span></span>
+            <label for="customer_note">Notatka od klienta</label>
+            <input type="text" name="customer_note" value="Nie włącza się" id="customer_note" disabled />
+            <span></span>
+            <a href="../edit/1" class="list-actions-button-edit">Edytuj</a>
+        </form>
+        <h2>Historia napraw</h2>
+        <table class="table-list">
+            <thead>
+                <tr>
+                    <th>Status</th>
+                    <th>Koszt naprawy</th>
+                    <th>Ostatnia aktualizacja</th>
+                    <th>Serwisant</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Zakończona</td>
+                    <td>1400</td>
+                    <td>21/11/2020</td>
+                    <td>Zbyszek Tokarczuk</td>
+                </tr>
+                <tr>
+                    <td>W trakcie</td>
+                    <td>500</td>
+                    <td>10/11/2020</td>
+                    <td>Janko Muzykant</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="form-buttons">
+            <a href="../" class="list-actions-button-details">Powrót</a>
+        </div>
+        </form>
+    </main>
+    <%- include('../../fragments/footer.ejs')%>
