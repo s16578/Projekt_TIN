@@ -11,42 +11,35 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Zbyszek Hajzer</td>
-                    <td>Lenovo Legion GL65</td>
-                    <td>Naprawiony</td>
-                    <td>
-                        <ul class="list-actions">
-                            <li>
-                                <a href="repairs/details/1" class="list-actions-button-details">Szczegóły</a>
-                            </li>
-                            <li>
-                                <a href="repairs/edit/1" class="list-actions-button-edit">Edytuj</a>
-                            </li>
-                            <li>
-                                <a href="" class="list-actions-button-delete">Usuń</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Marcin Konopnicki</td>
-                    <td>Dell XPS</td>
-                    <td>W trakcie naprawy</td>
-                    <td>
-                        <ul class="list-actions">
-                            <li>
-                                <a href="repairs/details/1" class="list-actions-button-details">Szczegóły</a>
-                            </li>
-                            <li>
-                                <a href="repairs/edit/1" class="list-actions-button-edit">Edytuj</a>
-                            </li>
-                            <li>
-                                <a href="" class="list-actions-button-delete">Usuń</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
+                <% for (let repair of callback) { %>
+                    <tr>
+                        <td>
+                            <%= repair.name%>
+                        </td>
+                        <td>
+                            <%= repair.model%>
+                        </td>
+                        <td>
+                            <%= repair.status%>
+                        </td>
+                        <td>
+                            <ul class="list-actions">
+                                <li>
+                                    <a href="/repairs/details/<%= repair.id%>"
+                                        class="list-actions-button-details">Szczegóły</a>
+                                </li>
+                                <li>
+                                    <a href="/repairs/edit/<%= repair.id%>" class="list-actions-button-edit">Edytuj</a>
+                                </li>
+                                <li>
+                                    <a href="/repairs/delete/<%= repair.id%>"
+                                        onclick="return confirm('Czy potwierdzasz usunięcie naprawy z bazy danych?')"
+                                        class="list-actions-button-delete">Usuń</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <%} %>
             </tbody>
         </table>
         <p><a href="/repairs/add" class="button-add">Wprowadz nową naprawę</a></p>

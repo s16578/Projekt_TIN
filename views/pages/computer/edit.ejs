@@ -1,21 +1,21 @@
 <%- include('../../fragments/headerComputers.ejs')%>
     <main>
         <h2>Edytuj komputer</h2>
-        <form class="form" novalidate onsubmit="return validateForm();">
+        <form class="form" method="POST" novalidate onsubmit="return validateForm();">
             <label for="model">Model</label>
-            <input type="text" name="model" value="Lenovo Legion GL65" id="model" />
+            <input type="text" name="model" value="<%= callback[0].model%>" id="model" />
             <span id="errorModel" class="errors-text"></span>
-            <label for="RAM">RAM</label>
-            <input type="number" name="RAM" value="16" id="RAM" />
+            <label for="ram">RAM</label>
+            <input type="number" name="ram" value="<%= callback[0].ram%>" id="ram" />
             <span id="errorRam" class="errors-text"></span>
-            <label for="Disc">Dysk</abbr></label>
-            <input type="number" name="Disc" value="512" id="Disc" />
+            <label for="disc">Dysk</abbr></label>
+            <input type="number" name="disc" value="<%= callback[0].disc%>" id="disc" />
             <span id="errorDisc" class="errors-text"></span>
-            <label for="Gpu">GPU</label>
-            <input type="text" name="Gpu" value="-" id="Gpu" />
-            <span id="Gpu" class="errors-text"></span>
+            <label for="gpu">GPU</label>
+            <input type="text" name="gpu" value="<%= callback[0].gpu%>" id="gpu" />
+            <span id="gpu" class="errors-text"></span>
             <label for="customer_note">Notatka od klienta</label>
-            <input type="text" name="customer_note" value="Nie włącza się" id="customer_note" />
+            <input type="text" name="customer_note" value="<%= callback[0].customer_note%>" id="customer_note" />
             <span id="errorNote" class="errors-text"></span>
             <p id="errorsSummary" class="errors-text"></p>
             <input type="submit" value="Edytuj" class="form-buttons-submit" />

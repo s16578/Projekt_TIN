@@ -2,17 +2,16 @@
     <main>
         <h2>Szczegóły pracownika</h2>
         <form class="form">
-
             <label for="firstName">Imie</label>
-            <input type="text" name="firstName" value="Zbyszek" id="firstName" disabled />
+            <input type="text" name="name" value="<%= callback[0].name%>" id="name" disabled />
             <span></span>
             <label for="secondName">Nazwisko</label>
-            <input type="text" name="secondName" value="Hajzer" id="secondName" disabled />
+            <input type="text" name="surname" value="<%= callback[0].surname%>" id="surname" disabled />
             <span></span>
             <label for="role">Stanowisko</label>
-            <input type="text" name="role" value="Serwisant" id="role" disabled />
+            <input type="text" name="role" value="<%= callback[0].role%>" id="role" disabled />
             <span></span>
-            <a href="../../employees/edit/1" class="list-actions-button-edit">Edytuj</a>
+            <a href="../../employees/edit/<%= callback[0].id%>" class="list-actions-button-edit">Edytuj</a>
         </form>
         <h2>Historia serwisów</h2>
         <table class="table-list">
@@ -27,22 +26,28 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Lenovo G50</td>
-                    <td>Słaba bateria</td>
-                    <td>W realizacji</td>
-                    <td>10/05/2020</td>
-                    <td>-</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>Dell 3650</td>
-                    <td>Wymieniony ekran</td>
-                    <td>Zakończona</td>
-                    <td>03/08/2020</td>
-                    <td>15/09/2020</td>
-                    <td>600</td>
-                </tr>
+                <% for (let history of callback) { %>
+                    <tr>
+                        <td>
+                            <%= history.model%>
+                        </td>
+                        <td>
+                            <%= history.note%>
+                        </td>
+                        <td>
+                            <%= history.status%>
+                        </td>
+                        <td>
+                            <%= history.date_start%>
+                        </td>
+                        <td>
+                            <%= history.date_end%>
+                        </td>
+                        <td>
+                            <%= history.cost%>
+                        </td>
+                    </tr>
+                    <% } %>
             </tbody>
         </table>
         <div class="form-buttons">

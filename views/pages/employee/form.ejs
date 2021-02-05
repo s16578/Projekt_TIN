@@ -1,12 +1,12 @@
 <%- include('../../fragments/headerEmployees.ejs')%>
     <main>
         <h2>Nowy Pracownik</h2>
-        <form class="form" novalidate onsubmit="return validateForm();">
-            <label for="firstName">Imie<abbr title="required" aria-label="required">*</abbr></label>
-            <input type="text" name="firstName" id="firstName" placeholder="2-30 znaków" />
+        <form class="form" method="POST" novalidate onsubmit="return validateForm();">
+            <label for="name">Imie<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="text" name="name" id="name" placeholder="2-30 znaków" />
             <span id="errorFirstName" class="errors-text"></span>
-            <label for="secondName">Nazwisko<abbr title="required" aria-label="required">*</abbr></label>
-            <input type="text" name="secondName" id="secondName" placeholder="2-30 znaków" />
+            <label for="surname">Nazwisko<abbr title="required" aria-label="required">*</abbr></label>
+            <input type="text" name="surname" id="surname" placeholder="2-30 znaków" />
             <span id="errorSecondName" class="errors-text"></span>
             <label for="role">Stanowisko<abbr title="required" aria-label="required">*</abbr></label>
             <select name="role" id="role">

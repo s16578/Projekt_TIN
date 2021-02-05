@@ -3,21 +3,22 @@
         <h2>Szczegóły komputera</h2>
         <form class="form">
             <label for="model">Model</label>
-            <input type="text" name="model" value="Lenovo Legion GL65" id="model" disabled />
+            <input type="text" name="model" value="<%= callback[0].model%>" id="model" disabled />
             <span></span>
             <label for="RAM">RAM</label>
-            <input type="number" name="RAM" value="16" id="RAM" disabled />
+            <input type="number" name="RAM" value="<%= callback[0].ram%>" id="RAM" disabled />
             <span></span>
             <label for="Disc">Dysk</abbr></label>
-            <input type="number" name="Disc" value="512" id="Disc" disabled />
+            <input type="number" name="Disc" value="<%= callback[0].disc%>" id="Disc" disabled />
             <span></span>
             <label for="Gpu">GPU</label>
-            <input type="text" name="Gpu" value="-" id="Gpu" disabled />
+            <input type="text" name="Gpu" value="<%= callback[0].gpu%>" id="Gpu" disabled />
             <span></span>
             <label for="customer_note">Notatka od klienta</label>
-            <input type="text" name="customer_note" value="Nie włącza się" id="customer_note" disabled />
+            <input type="text" name="customer_note" value="<%= callback[0].customer_note%>" id="customer_note"
+                disabled />
             <span></span>
-            <a href="../edit/1" class="list-actions-button-edit">Edytuj</a>
+            <a href="../edit/<%= callback[0].id%>" class="list-actions-button-edit">Edytuj</a>
         </form>
         <h2>Historia napraw</h2>
         <table class="table-list">
@@ -25,27 +26,31 @@
                 <tr>
                     <th>Status</th>
                     <th>Koszt naprawy</th>
-                    <th>Ostatnia aktualizacja</th>
+                    <th>Notatka</th>
                     <th>Serwisant</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Zakończona</td>
-                    <td>1400</td>
-                    <td>21/11/2020</td>
-                    <td>Zbyszek Tokarczuk</td>
-                </tr>
-                <tr>
-                    <td>W trakcie</td>
-                    <td>500</td>
-                    <td>10/11/2020</td>
-                    <td>Janko Muzykant</td>
-                </tr>
+                <% for (let history of callback) { %>
+                    <tr>
+                        <td>
+                            <%= history.status%>
+                        </td>
+                        <td>
+                            <%= history.cost%>
+                        </td>
+                        <td>
+                            <%= history.note%>
+                        </td>
+                        <td>
+                            <%= history.name%>
+                        </td>
+                    </tr>
+                    <% } %>
             </tbody>
         </table>
         <div class="form-buttons">
-            <a href="../" class="list-actions-button-details">Powrót</a>
+            <a href="/computers" class="list-actions-button-details">Powrót</a>
         </div>
         </form>
     </main>

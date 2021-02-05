@@ -13,46 +13,41 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Lenovo Legion GL65</td>
-                    <td>16</td>
-                    <td>512</td>
-                    <td>-</td>
-                    <td>"Nie włącza się"</td>
-                    <td>
-                        <ul class="list-actions">
-                            <li>
-                                <a href="computers/details/1" class="list-actions-button-details">Szczegóły</a>
-                            </li>
-                            <li>
-                                <a href="computers/edit/1" class="list-actions-button-edit">Edytuj</a>
-                            </li>
-                            <li>
-                                <a href="" class="list-actions-button-delete">Usuń</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Dell XPS</td>
-                    <td>8</td>
-                    <td>1024</td>
-                    <td>Radeon 3010</td>
-                    <td>Komputer ma wysoką temperaturę podczas pracy</td>
-                    <td>
-                        <ul class="list-actions">
-                            <li>
-                                <a href="computers/details/1" class="list-actions-button-details">Szczegóły</a>
-                            </li>
-                            <li>
-                                <a href="computers/edit/1" class="list-actions-button-edit">Edytuj</a>
-                            </li>
-                            <li>
-                                <a href="" class="list-actions-button-delete">Usuń</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
+                <% for (let comp of callback) { %>
+                    <tr>
+                        <td>
+                            <%= comp.model%>
+                        </td>
+                        <td>
+                            <%= comp.Ram%>
+                        </td>
+                        <td>
+                            <%= comp.Disc%>
+                        </td>
+                        <td>
+                            <%= comp.Gpu%>
+                        </td>
+                        <td>
+                            <%= comp.customer_note%>
+                        </td>
+                        <td>
+                            <ul class="list-actions">
+                                <li>
+                                    <a href="/computers/details/<%= comp.id%>"
+                                        class="list-actions-button-details">Szczegóły</a>
+                                </li>
+                                <li>
+                                    <a href="/computers/edit/<%= comp.id%>" class="list-actions-button-edit">Edytuj</a>
+                                </li>
+                                <li>
+                                    <a href="/computers/delete/<%= comp.id%>"
+                                        onclick="return confirm('Czy potwierdzasz usunięcie komputera: <%= comp.model%>? Usunięcie wiążę się również z usunięciem wszystkich jego dotychczasowych napraw.')"
+                                        class="list-actions-button-delete">Usuń</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <% } %>
             </tbody>
         </table>
         <p><a href="computers/add" class="button-add">Wprowadz nowy komputer</a></p>

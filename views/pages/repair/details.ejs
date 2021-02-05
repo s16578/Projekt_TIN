@@ -2,26 +2,20 @@
     <main>
         <h2>Szczegóły naprawy</h2>
         <form class="form">
-            <label for="id">Numer naprawy</label>
-            <input type="text" name="id" value="3" id="id" disabled />
-            <span></span>
-            <label for="model">Model</label>
-            <input type="text" name="model" value="Lenovo Legion GL65" id="model" disabled />
-            <span></span>
             <label for="status">Status</label>
-            <input type="text" name="status" value="Naprawiony" id="status" disabled />
+            <input type="text" name="status" value="<%= callback[0].status%>" id="status" disabled />
             <span></span>
             <label for="date_start">Data rozpoczęcia naprawy</label>
-            <input type="date" name="date_start" value="20.04.2020" id="date_start" disabled />
+            <input type="date" name="date_start" value="<%= callback[0].date_start%>" id="date_start" disabled />
             <span></span>
             <label for="date_end">Data zakończenia naprawy</label>
-            <input type="date" name="date_end" value="29.04.2020" id="date_end" disabled />
+            <input type="date" name="date_end" value="<%=callback[0].date_end%>" id="date_end" disabled />
             <span></span>
             <label for="note">Notatka</label>
-            <input type="text" name="note" value="Wymiana kości RAM" id="note" disabled />
+            <input type="text" name="note" value="<%= callback[0].note%>" id="note" disabled />
             <span></span>
-            <label for="cost">Całkowity koszt naprawy</label>
-            <input type="text" name="cost" value="340" id="cost" disabled />
+            <label for="cost">Koszt naprawy</label>
+            <input type="text" name="cost" value="<%= callback[0].cost%>" id="cost" disabled />
             <span></span>
             <a href="../../repairs/edit/1" class="list-actions-button-edit">Edytuj</a>
         </form>
@@ -29,19 +23,25 @@
         <table class="table-list">
             <thead>
                 <tr>
-                    <th>Serwisant</th>
-                    <th>Data rozpoczęcia</th>
-                    <th>Data zakończenia</th>
-                    <th>Koszt</th>
+                    <th>Imie</th>
+                    <th>Nazwisko</th>
+                    <th>Stanowisko</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Zbyszek</td>
-                    <td>20.04.2010</td>
-                    <td>15.03.2010</td>
-                    <td>200</td>
-                </tr>
+                <% for (let emp of callback) {%>
+                    <tr>
+                        <td>
+                            <%= emp.name%>
+                        </td>
+                        <td>
+                            <%= emp.surname%>
+                        </td>
+                        <td>
+                            <%= emp.role%>
+                        </td>
+                    </tr>
+                    <% } %>
             </tbody>
         </table>
         <h2>Komputer</h2>
@@ -56,13 +56,25 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>DELL 3000</td>
-                    <td>Komputer nie uruchamia się</td>
-                    <td>4</td>
-                    <td>528</td>
-                    <td>-</td>
-                </tr>
+                <% for (let comp of callback) {%>
+                    <tr>
+                        <td>
+                            <%= comp.model%>
+                        </td>
+                        <td>
+                            <%= comp.customer_note%>
+                        </td>
+                        <td>
+                            <%= comp.Ram%>
+                        </td>
+                        <td>
+                            <%= comp.Disc%>
+                        </td>
+                        <td>
+                            <%= comp.Gpu%>
+                        </td>
+                    </tr>
+                    <% } %>
             </tbody>
         </table>
         <div class="form-buttons">

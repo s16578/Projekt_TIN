@@ -1,15 +1,18 @@
 <%- include('../../fragments/headerEmployees.ejs')%>
     <main>
         <h2>Edytuj pracownika</h2>
-        <form class="form" novalidate onsubmit="return validateForm();">
-            <label for="firstName">Imie</label>
-            <input type="text" name="firstName" value="Zbyszek" id="firstName" />
+        <form class="form" method="POST" novalidate onsubmit="return validateForm();">
+            <label for="name">Imie</label>
+            <input type="text" name="name" value="<%= callback[0].name%>" id="name" />
             <span id="errorFirstName" class="errors-text"></span>
-            <label for="secondName">Nazwisko</label>
-            <input type="text" name="secondName" value="Hajzer" id="secondName" />
+            <label for="surname">Nazwisko</label>
+            <input type="text" name="surname" value="<%= callback[0].surname%>" id="surname" />
             <span id="errorSecondName" class="errors-text"></span>
             <label for="role">Stanowisko</label>
             <select name="role" id="role">
+                <option selected value="<%=callback[0].role%>">
+                    <%=callback[0].role%>
+                </option>
                 <option value="Tester">Tester</option>
                 <option value="Serwisant">Serwisant</option>
                 <option value="Menadzer">Menadzer</option>
@@ -18,7 +21,7 @@
             <span id="errorRole" class="errors-text"></span>
             <p id="errorsSummary" class="errors-text"></p>
             <input type="submit" value="Edytuj" class="form-buttons-submit" />
-            <input type="submit" value="Anuluj" class="form-buttons-cancel" />
+            <input type="button" onclick="location.href='/employees'" value="Anuluj" class="form-buttons-cancel" />
         </form>
     </main>
     <%- include('../../fragments/footer.ejs')%>

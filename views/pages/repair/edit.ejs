@@ -2,9 +2,6 @@
     <main>
         <h2>Edytuj naprawę</h2>
         <form class="form" novalidate onsubmit="return validateForm();">
-            <label for="id">Numer naprawy</label>
-            <input type="text" name="id" value="3" id="id" disabled />
-            <span id="errorId"></span>
             <label for="model">Model</label>
             <input type="text" name="model" value="Lenovo Legion GL65" id="model" disabled />
             <span id="errorModel"></span>
@@ -20,7 +17,7 @@
             <label for="note">Notatka</label>
             <input type="text" name="note" value="Wymiana kości RAM" id="note" />
             <span id="errorNote" class="errors-text"></span>
-            <label for="cost">Całkowity koszt naprawy</label>
+            <label for="cost">Koszt naprawy</label>
             <input type="number" name="cost" value="340" id="cost" />
             <span id="errorCost" class="errors-text"></span>
             <p id="errorsSummary" class="errors-text"></p>
