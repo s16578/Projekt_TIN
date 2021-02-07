@@ -50,11 +50,7 @@ function validateForm() {
         errorNote.innerText = "Status powinien zawierać od 2 do 30 znaków";
     }
 
-    if (!checkRequired(costInput.value)) {
-        valid = false;
-        costInput.classList.add("error-input");
-        errorCost.innerText = "Koszt całkowity jest wymagany";
-    } else if (!checkInt(costInput.value)) {
+    if (!checkInt(costInput.value)) {
         valid = false;
         costInput.classList.add("error-input");
         errorCost.innerText = "Koszt całkowity powinien być liczbą całkowitą";

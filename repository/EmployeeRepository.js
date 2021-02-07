@@ -1,4 +1,5 @@
 const db = require('../config/dbconfig');
+//const empSchema = require('../model/joi/Employee');
 
 exports.getEmployees = (callback) => {
     let query = 'SELECT * FROM Employees';
@@ -11,8 +12,6 @@ exports.getEmployees = (callback) => {
                 else {
                     console.log(res.recordset);
                     callback(res.recordset);
-                    //return res.recordset;
-                    //this.getEmployees(false, res);
                 }
             })
 
@@ -42,8 +41,6 @@ exports.getEmployeeById = (empId, callback) => {
                     else {
                         console.log(res.recordset);
                         callback(res.recordset);
-                        //return res.recordset;
-                        //this.getEmployees(false, res);
                     }
                 })
 
@@ -55,6 +52,11 @@ exports.getEmployeeById = (empId, callback) => {
 };
 
 exports.createEmployee = (newEmpData, callback) => {
+    //  const vRes = empSchema.validate(newEmpData, { abortEarly: false });
+    //  if (vRes.error) {
+    //     return Promise.reject(vRes.error);
+    // }
+
     let query = 'INSERT INTO Employees (name, surname, role)'
         + ' VALUES (@name, @surname, @role)';
     try {
@@ -121,8 +123,6 @@ exports.deleteEmployee = (empId, callback) => {
                     }
                     else {
                         callback(res.rowsAffected);
-                        //return res.recordset;
-                        //this.getEmployees(false, res);
                     }
                 })
 

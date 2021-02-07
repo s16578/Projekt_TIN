@@ -1,13 +1,13 @@
 const EmployeeRepository = require('../repository/EmployeeRepository');
-const url = require('url'); 
+const url = require('url');
 
 exports.showEmployeeList = (req, res, next) => {
     EmployeeRepository.getEmployees((callback) => {
         var messageOutput;
-        const queryObject = url.parse(req.url,true).query;
-          if(queryObject.message){
-               messageOutput = queryObject.message;
-          }
+        const queryObject = url.parse(req.url, true).query;
+        if (queryObject.message) {
+            messageOutput = queryObject.message;
+        }
         res.render('pages/employee/list', { callback: callback, message: messageOutput, navLocation: 'emp' })
     })
 };
@@ -32,52 +32,32 @@ exports.showEmployeeEdit = (req, res, next) => {
 };
 
 exports.updateEmployee = (req, res, next) => {
-    //const empId = req.empId;
-    //const empData = { ...req.body };
     const empId = req.params.empId
     EmployeeRepository.updateEmployee(empId, req.body, (callback) => {
-        res.redirect('/employees?success=true');
+        var value = encodeURIComponent('Pracownik zaktualizowany.');
+        res.redirect('/employees?message=' + value);
     })
 };
 
 exports.deleteEmployee = (req, res, next) => {
     const empId = req.params.empId;
-    //let info = 'udalo sie';
     EmployeeRepository.deleteEmployee(empId, (callback) => {
-        res.redirect('/employees?success=true');
-        // EmployeeRepository.getEmployees((callback) => {
-        //    console.log('dupa2');
-        //   res.render('pages/employee/list', { callback: callback, success: info, navLocation: 'emp' })
-        //   console.log('dupa');
-        //})
+        var value = encodeURIComponent('Pracownik usunięty.');
+        res.redirect('/employees?message=' + value);
     })
 };
-/*
-exports.createEmployee = (req, res, next) => {
-    if (req.body) {
-        EmployeeRepository.createEmployee(req.body, (callback) => {
-            if (res.status(201)) {
-                res.redirect('/employees');
-                //EmployeeRepository.getEmployees((callback) => {
-                //    res.render('pages/employee/list', { callback: callback, success: "Udało się", navLocation: 'emp' })
-                //})
-            }
-        })
-    }
-};
-*/
 
 exports.createEmployee = (req, res, next) => {
     EmployeeRepository.createEmployee(req.body, (result) => {
         EmployeeRepository.getEmployees((callback) => {
-            var value = encodeURIComponent('dodany wpis');
+            var value = encodeURIComponent('Dodano nowego pracownika.');
             res.redirect('/employees?message=' + value);
-         //  res.render('pages/employee/list', {
-         //       callback: callback,
-         //       navLocation: "emp",
-         //       success: 'k',
-         //       result: result
-         //   });
         })
-    })
+    })//.catch(err => {
+    //  res.render('pages/employee/form', {
+    //      navLocation: 'emp',
+    //      validationErrors: err.details
+    // }
+    //  )
+
 };

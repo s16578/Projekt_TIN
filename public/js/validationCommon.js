@@ -36,7 +36,7 @@ function checkTextLengthRange(value, min, max) {
 
 function checkPositiveNumber(value) {
     console.log(value)
-    if (value < 1) {
+    if (value < 0) {
         return false
     }
     return true

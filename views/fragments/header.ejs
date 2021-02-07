@@ -17,8 +17,14 @@
     <nav>
         <ul>
             <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>">Strona główna</a></li>
-            <li><a href="/employees" class="<%= navLocation == 'emp' ? 'active' : ''%>">Pracownicy</a></li>
-            <li><a href="/repairs" class="<%= navLocation == 'rep' ? 'active' : ''%>">Naprawy</a></li>
-            <li><a href="/computers" class="<%= navLocation == 'comp' ? 'active' : ''%>">Komputery</a></li>
+            <% if(loggedUser) { %>
+                <li><a href="/employees" class="<%= navLocation == 'emp' ? 'active' : ''%>">Pracownicy</a></li>
+                <li><a href="/repairs" class="<%= navLocation == 'rep' ? 'active' : ''%>">Naprawy</a></li>
+                <li><a href="/computers" class="<%= navLocation == 'comp' ? 'active' : ''%>">Komputery</a></li>
+                <li><a href="/auth/logout">Wyloguj się</a></li>
+                <% } else { %>
+                    <li><a href="/auth">Logowanie</a></li>
+                    <li><a href="/register">Rejestracja</a></li>
+                    <% } %>
         </ul>
     </nav>

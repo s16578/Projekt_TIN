@@ -9,10 +9,7 @@ exports.getComputers = (callback) => {
                     console.log(err)
                 }
                 else {
-                    console.log(res.recordset);
                     callback(res.recordset);
-                    //return res.recordset;
-                    //this.getEmployees(false, res);
                 }
             })
 
@@ -122,8 +119,6 @@ exports.deleteComputer = (compId, callback) => {
                     }
                     else {
                         callback(res.rowsAffected);
-                        //return res.recordset;
-                        //this.getEmployees(false, res);
                     }
                 })
 

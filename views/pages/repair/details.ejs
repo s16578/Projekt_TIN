@@ -17,7 +17,7 @@
             <label for="cost">Koszt naprawy</label>
             <input type="text" name="cost" value="<%= callback[0].cost%>" id="cost" disabled />
             <span></span>
-            <a href="../../repairs/edit/1" class="list-actions-button-edit">Edytuj</a>
+            <a href="../../repairs/edit/<%= callback[0].id%>" class="list-actions-button-edit">Edytuj</a>
         </form>
         <h2>Serwisant</h2>
         <table class="table-list">
@@ -78,7 +78,7 @@
             </tbody>
         </table>
         <div class="form-buttons">
-            <a href="/repairs" class="list-actions-button-details">Powrót</a>
+            <a href="/repairs/" class="list-actions-button-details">Powrót</a>
         </div>
     </main>
     <%- include('../../fragments/footer.ejs')%>

@@ -1,47 +1,55 @@
 <%- include('../../fragments/header.ejs')%>
-    <main>
-        <h2>Naprawy</h2>
-        <table class="table-list">
-            <thead>
-                <tr>
-                    <th>Serwisant</th>
-                    <th>Model</th>
-                    <th>Status</th>
-                    <th>Akcje</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% for (let repair of callback) { %>
-                    <tr>
-                        <td>
-                            <%= repair.name%>
-                        </td>
-                        <td>
-                            <%= repair.model%>
-                        </td>
-                        <td>
-                            <%= repair.status%>
-                        </td>
-                        <td>
-                            <ul class="list-actions">
-                                <li>
-                                    <a href="/repairs/details/<%= repair.id%>"
-                                        class="list-actions-button-details">Szczegóły</a>
-                                </li>
-                                <li>
-                                    <a href="/repairs/edit/<%= repair.id%>" class="list-actions-button-edit">Edytuj</a>
-                                </li>
-                                <li>
-                                    <a href="/repairs/delete/<%= repair.id%>"
-                                        onclick="return confirm('Czy potwierdzasz usunięcie naprawy z bazy danych?')"
-                                        class="list-actions-button-delete">Usuń</a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <%} %>
-            </tbody>
-        </table>
-        <p><a href="/repairs/add" class="button-add">Wprowadz nową naprawę</a></p>
-    </main>
-    <%- include('../../fragments/footer.ejs')%>
+    <% if(message) {%>
+        <div class="alert alert-success">
+            <%= message %>
+        </div>
+        <% } %>
+            <main>
+                <h2>Naprawy</h2>
+                <table class="table-list">
+                    <thead>
+                        <tr>
+                            <th>Serwisant</th>
+                            <th>Model</th>
+                            <th>Status</th>
+                            <th>Akcje</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (let repair of callback) { %>
+                            <tr>
+                                <td>
+                                    <%= repair.name%>
+                                </td>
+                                <td>
+                                    <%= repair.model%>
+                                </td>
+                                <td>
+                                    <%= repair.status%>
+                                </td>
+                                <td>
+                                    <ul class="list-actions">
+                                        <li>
+                                            <a href="/repairs/details/<%= repair.id%>"
+                                                class="list-actions-button-details">Szczegóły</a>
+                                        </li>
+                                        <li>
+                                            <a href="/repairs/edit/<%= repair.id%>"
+                                                class="list-actions-button-edit">Edytuj</a>
+                                        </li>
+                                        <% if(loggedUser==='admin' ) { %>
+                                            <li>
+                                                <a href="/repairs/delete/<%= repair.id%>"
+                                                    onclick="return confirm('Czy potwierdzasz usunięcie naprawy z bazy danych?')"
+                                                    class="list-actions-button-delete">Usuń</a>
+                                            </li>
+                                            <%}%>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <%} %>
+                    </tbody>
+                </table>
+                <p><a href="/repairs/add" class="button-add">Wprowadz nową naprawę</a></p>
+            </main>
+            <%- include('../../fragments/footer.ejs')%>

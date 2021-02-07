@@ -1,52 +1,55 @@
 <%- include('../../fragments/header.ejs')%>
-    <!--   <% if(message) {%>
+    <% if(message) {%>
         <div class="alert alert-success">
             <%= message %>
         </div>
-        <% } %>-->
-    <main>
-        <h2>Lista pracownków</h2>
-        <table class="table-list">
-            <thead>
-                <tr>
-                    <th>Imię</th>
-                    <th>Nazwisko</th>
-                    <th>Ranga</th>
-                    <th>Akcje</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% for (let emp of callback) { %>
-                    <tr>
-                        <td>
-                            <%= emp.name%>
-                        </td>
-                        <td>
-                            <%= emp.surname%>
-                        </td>
-                        <td>
-                            <%= emp.role%>
-                        </td>
-                        <td>
-                            <ul class="list-actions">
-                                <li>
-                                    <a href="/employees/details/<%=emp.id%>"
-                                        class="list-actions-button-details">Szczegóły</a>
-                                </li>
-                                <li>
-                                    <a href="/employees/edit/<%=emp.id%>" class="list-actions-button-edit">Edytuj</a>
-                                </li>
-                                <li>
-                                    <a href="/employees/delete/<%=emp.id%>"
-                                        onclick="return confirm('Czy potwierdzasz usunięcie pracownika: <%= emp.name%> <%= emp.surname%>? Usunięcie wiążę się również z usunięciem wszystkich jego dotychczasowych napraw.')"
-                                        class="list-actions-button-delete">Usuń</a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <% } %>
-            </tbody>
-        </table>
-        <p><a href="employees/add" class="button-add">Dodaj nowego pracownika</a></p>
-    </main>
-    <%- include('../../fragments/footer.ejs')%>
+        <% } %>
+            <main>
+                <h2>Lista pracownków</h2>
+                <table class="table-list">
+                    <thead>
+                        <tr>
+                            <th>Imię</th>
+                            <th>Nazwisko</th>
+                            <th>Ranga</th>
+                            <th>Akcje</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (let emp of callback) { %>
+                            <tr>
+                                <td>
+                                    <%= emp.name%>
+                                </td>
+                                <td>
+                                    <%= emp.surname%>
+                                </td>
+                                <td>
+                                    <%= emp.role%>
+                                </td>
+                                <td>
+                                    <ul class="list-actions">
+                                        <li>
+                                            <a href="/employees/details/<%=emp.id%>"
+                                                class="list-actions-button-details">Szczegóły</a>
+                                        </li>
+                                        <li>
+                                            <a href="/employees/edit/<%=emp.id%>"
+                                                class="list-actions-button-edit">Edytuj</a>
+                                        </li>
+                                        <% if(loggedUser==='admin' ) { %>
+                                            <li>
+                                                <a href="/employees/delete/<%=emp.id%>"
+                                                    onclick="return confirm('Czy potwierdzasz usunięcie pracownika: <%= emp.name%> <%= emp.surname%>? Usunięcie wiążę się również z usunięciem wszystkich jego dotychczasowych napraw.')"
+                                                    class="list-actions-button-delete">Usuń</a>
+                                            </li>
+                                            <% } %>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <% } %>
+                    </tbody>
+                </table>
+                <p><a href="employees/add" class="button-add">Dodaj nowego pracownika</a></p>
+            </main>
+            <%- include('../../fragments/footer.ejs')%>

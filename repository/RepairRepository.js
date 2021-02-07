@@ -15,7 +15,6 @@ exports.getRepairs = (callback) => {
                 else {
                     console.log(res.recordset);
                     callback(res.recordset);
-                    //this.getEmployees(false, res);
                 }
             })
 
@@ -26,7 +25,7 @@ exports.getRepairs = (callback) => {
 };
 
 exports.getRepairById = (repairId, callback) => {
-    let query = 'SELECT r.status, dbo.castDateNode(r.date_start) AS date_start, dbo.castDateNode(r.date_end) AS date_end, r.note, r.cost, '
+    let query = 'SELECT r.id, r.status, dbo.castDateNode(r.date_start) AS date_start, dbo.castDateNode(r.date_end) AS date_end, r.note, r.cost, '
         + 'e.name, e.surname, e.role, c.model, c.customer_note, c.Ram, c.Disc, c.Gpu '
         + 'FROM Repairs r '
         + 'INNER JOIN Computers c '
@@ -120,8 +119,6 @@ exports.deleteRepair = (repairId, callback) => {
                     }
                     else {
                         callback(res.rowsAffected);
-                        //return res.recordset;
-                        //this.getEmployees(false, res);
                     }
                 })
 
