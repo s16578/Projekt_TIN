@@ -86,7 +86,7 @@ exports.updateRepair = (repairId, repairData, callback) => {
         db.pool.connect(() => {
             db.pool.request()
                 .input('status', repairData.status)
-                .input('note', repairData.date_end)
+                .input('note', repairData.note)
                 .input('date_end', repairData.date_end)
                 .input('cost', repairData.cost)
                 .input('repairId', repairId)
